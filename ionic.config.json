@@ -1,0 +1,7 @@
+{
+  "name": "proyectoDuocApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
