@@ -1,0 +1,35 @@
+#login{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+}
+
+#botonesLogin{
+    display: flex;
+    justify-content: center;
+}
+
+.formularioLogin{
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*ANIMACION DE PRUEBA*/
+
+#logo{
+  animation: example 5s linear 0s infinite alternate;
+  animation-duration:1ms;
+  animation-duration: 4s;
+  position: relative;
+}
+
+@keyframes example {
+    0%   {left:0px; top:0px;}
+    50%  {left:0px; top:-150px;}
+    100%  {left:0px; top:0;}
+  }

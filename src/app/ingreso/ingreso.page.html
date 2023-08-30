@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content class="background" [fullscreen]="true">
+  <div class="formularioLogin">  
+      <div id="logo">
+        <img width="150px" src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ba6eb16e-7880-45c2-8b26-10db799d9085/d8b80js-2dfedb77-dcb9-42c2-b1c9-241d0bc91866.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JhNmViMTZlLTc4ODAtNDVjMi04YjI2LTEwZGI3OTlkOTA4NVwvZDhiODBqcy0yZGZlZGI3Ny1kY2I5LTQyYzItYjFjOS0yNDFkMGJjOTE4NjYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.i15zWhfEpDd_x4uediN_oadMT7IqZVRr3pa4FDcVz0o" alt="">
+      </div>
+    <div id="login">
+      <ion-list>
+        <ion-list>
+          <ion-item>
+            <ion-input labelPlacement="floating">
+              <div slot="label">Usuario<ion-text color="danger"></ion-text></div>
+            </ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" labelPlacement="floating">
+              <div  slot="label">Contraseña<ion-text color="danger"></ion-text></div>
+            </ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-list>
+    </div>
+    <div id="botonesLogin">
+        <ion-button href="folder/:id" color="success" >Ingresar</ion-button> <ion-button href="recuperar-cuenta">Recuperar cuenta</ion-button>
+    </div>
+  </div>
+</ion-content>

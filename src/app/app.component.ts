@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' }
+    { title: 'Escanear QR', url: '/folder/inbox', icon: 'mail' },
+    { title: 'Horario', url: '/folder/outbox', icon: 'paper-plane' },
+    { title: 'Horario', url: '/folder/outbox', icon: 'paper-plane' },
+    { title: 'Horario', url: '/folder/outbox', icon: 'paper-plane' }
   ];
   constructor() {}
 }
