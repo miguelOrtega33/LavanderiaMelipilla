@@ -1,4 +1,9 @@
-<ion-header [translucent]="true">
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="arrow-back" defaultHref="/ingreso"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="background" [fullscreen]="true">
@@ -15,8 +20,8 @@
             </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="password" labelPlacement="floating">
-              <div  slot="label">Contraseña<ion-text color="danger"></ion-text></div>
+            <ion-input type="email" labelPlacement="floating">
+              <div  slot="label">Correo<ion-text color="danger"></ion-text></div>
             </ion-input>
           </ion-item>
         </ion-list>
