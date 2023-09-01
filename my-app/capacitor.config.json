@@ -1,0 +1,11 @@
+{
+  "appId": "francisco.soto.22042003",
+  "appName": "duocApp",
+  "bundledWebRuntime": false,
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
+}
