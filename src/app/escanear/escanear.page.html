@@ -1,8 +1,7 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <ion-title text="" ></ion-title>
+      <ion-back-button text="" icon="arrow-back" defaultHref="/folder/:id"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,13 +9,7 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <h1>Hola bb te amo</h1>
-      <h2>Con todo mi corazon</h2>
-      <h3>Estudiando para tener nuestra casita</h3>
-      <img src="https://s3.ppllstatics.com/diariovasco/www/pre2017/multimedia/noticias/201504/10/media/monos-comida-restaurante--575x323.jpg" alt="">
-      <h4>Nosotros comiendo rico</h4>
-      <ion-button id="open-toast" expand="block" color="success" (click)="presentAlert()">Clickeame :)</ion-button>
-      <P>AAAAAAAAAAAAAAAAA</P>
+      <ion-title size="large">escanear</ion-title>
     </ion-toolbar>
   </ion-header>
 </ion-content>
