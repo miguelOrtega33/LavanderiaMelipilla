@@ -18,6 +18,22 @@ const routes: Routes = [
   {
     path: 'recuperar-cuenta',
     loadChildren: () => import('./recuperar-cuenta/recuperar-cuenta.module').then( m => m.RecuperarCuentaPageModule)
+  },
+  {
+    path: 'escanear',
+    loadChildren: () => import('./escanear/escanear.module').then( m => m.EscanearPageModule)
+  },
+  {
+    path: 'horario',
+    loadChildren: () => import('./horario/horario.module').then( m => m.HorarioPageModule)
+  },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+  },
+  {
+    path: 'problema',
+    loadChildren: () => import('./problema/problema.module').then( m => m.ProblemaPageModule)
   }
 ];
 

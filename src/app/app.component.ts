@@ -6,10 +6,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Escanear QR', url: '/folder/inbox', icon: 'qr-code' },
+    { title: 'dxd', url: '/folder/:id', icon: 'home' },
+    { title: 'Escanear QR', url: '/escanear', icon: 'qr-code' },
     { title: 'Horario', url: '/horario', icon: 'calendar-number' },
     { title: 'Asistencia', url: '/asistencia', icon: 'checkmark' },
-    { title: 'Reportar un problema', url: '/reportar', icon: 'information' },
+    { title: 'Reportar un problema', url: '/problema', icon: 'information' },
     { title: 'Cerrar sesion', url: '/ingreso', icon: 'log-out' }
   ];
   constructor() {}
