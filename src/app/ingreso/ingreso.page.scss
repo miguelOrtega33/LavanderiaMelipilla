@@ -19,17 +19,10 @@
     transform: translateY(-50%);
 }
 
-/*ANIMACION DE PRUEBA*/
-
-#logo{
-  animation: example 5s linear 0s infinite alternate;
-  animation-duration:1ms;
-  animation-duration: 4s;
-  position: relative;
+#acreditacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background-color: black;
 }
-
-@keyframes example {
-    0%   {left:0px; top:0px;}
-    50%  {left:0px; top:-150px;}
-    100%  {left:0px; top:0;}
-  }

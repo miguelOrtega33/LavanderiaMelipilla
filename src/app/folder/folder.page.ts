@@ -12,6 +12,13 @@ export class FolderPage implements OnInit {
   constructor() {
   }
 
+  fecha: Date = new Date();
+  dia: number = this.fecha.getDate(); 
+  mes: number = this.fecha.getMonth() + 1; 
+  annio: number = this.fecha.getFullYear(); 
+  hora: number = this.fecha.getHours(); 
+  minutos: number = this.fecha.getMinutes(); 
+
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }

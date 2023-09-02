@@ -20,16 +20,3 @@
 }
 
 /*ANIMACION DE PRUEBA*/
-
-#logo{
-  animation: example 5s linear 0s infinite alternate;
-  animation-duration:1ms;
-  animation-duration: 4s;
-  position: relative;
-}
-
-@keyframes example {
-    0%   {left:0px; top:0px;}
-    50%  {left:0px; top:-150px;}
-    100%  {left:0px; top:0;}
-  }
