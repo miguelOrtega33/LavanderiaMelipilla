@@ -20,7 +20,7 @@ export class IngresoPage implements OnInit {
   async showLoading() {
     const loading = await this.loadingCtrl.create({
       message: 'Cargando...',
-      duration: 3000
+      duration: 2000
     });
     await loading.present();
      // Simula un retraso antes de redirigir
