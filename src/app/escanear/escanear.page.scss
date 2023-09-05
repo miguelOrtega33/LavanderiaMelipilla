@@ -1,0 +1,21 @@
+#qr{
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#camara > img{
+    width: 50px;
+}
+
+#camara{
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 650px;
+    transform: translateY(-50%);
+}
