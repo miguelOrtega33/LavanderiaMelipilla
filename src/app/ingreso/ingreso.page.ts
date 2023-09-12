@@ -22,7 +22,7 @@ export class IngresoPage implements OnInit {
 
   async ingresar(){
     localStorage.setItem('usuario','admin');
-    localStorage.setItem('contrasena','admidn');
+    localStorage.setItem('contrasena','admin');
 
     if (localStorage.getItem('usuario') == "admin" && localStorage.getItem('contrasena') == "admin"){
         const loading = await this.loadingCtrl.create({
@@ -35,12 +35,15 @@ export class IngresoPage implements OnInit {
           loading.dismiss();
           this.router.navigate(['/folder/:id']); // Reemplaza 'nueva-pagina' por el nombre de tu página
         }, 2000); // Ajusta el tiempo de espera antes de la redirección
-    }else{
+    }
+    else{
       const alert = await this.alertController.create({
-        header: 'Mensaje',
-        message: 'Debes ingresar todos los datos',
+        header: 'Atencion!',
+        message: 'Datos incorrectos, porfavor rellenar los campos!',
         buttons: ['OK']
       });
+      
+    await alert.present();
     }
   }
 }
