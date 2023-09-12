@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { Share } from '@capacitor/share';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -10,8 +14,16 @@ export class AppComponent {
     { title: 'Escanear QR', url: '/escanear', icon: 'qr-code' },
     { title: 'Horario', url: '/horario', icon: 'calendar-number' },
     { title: 'Asistencia', url: '/asistencia', icon: 'checkmark' },
-    { title: 'Reportar un problema', url: '/problema', icon: 'information' },
-    { title: 'Cerrar sesion', url: '/ingreso', icon: 'log-out' }
+    { title: 'Reportar un problema', url: '/problema', icon: 'information' }
   ];
-  constructor() {}
+  constructor(public router: Router, private menu: MenuController) {}
+
+  compartirApp(){
+    Share.share({
+      title: 'Compartir myApp',
+      url: 'https://bilbaolabs.cl/',
+      dialogTitle: 'Es perfecta !',
+    });
+  }
+
 }

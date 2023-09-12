@@ -18,8 +18,10 @@ export class FolderPage implements OnInit {
   annio: number = this.fecha.getFullYear(); 
   hora: number = this.fecha.getHours(); 
   minutos: number = this.fecha.getMinutes(); 
+  usuario = localStorage.getItem('usuario');
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }
+
 }
