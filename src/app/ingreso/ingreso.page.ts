@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, LoadingController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { AlertController, LoadingController} from '@ionic/angular';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-ingreso',
@@ -8,21 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./ingreso.page.scss'],
 })
 export class IngresoPage implements OnInit {
-  usuario: string = "";
-  contrasena: string = "";
+  usuario: string = '';
+  contrasena: string = '';
 
   constructor(
     private loadingCtrl: LoadingController,
     private router: Router,
-    private alertController: AlertController  
+    private alertController: AlertController
     ) { }
 
     ngOnInit() {
     }
 
   async ingresar(){
-    localStorage.setItem('usuario','admin');
-    localStorage.setItem('contrasena','admin');
+    
+    localStorage.setItem('usuario', this.usuario);
+    localStorage.setItem('contrasena', this.contrasena);
+    this.usuario = ''; // Limpiar el input después de guardar
+    this.contrasena = ''; // Limpiar el input después de guardar
 
     if (localStorage.getItem('usuario') == "admin" && localStorage.getItem('contrasena') == "admin"){
         const loading = await this.loadingCtrl.create({
@@ -39,7 +42,7 @@ export class IngresoPage implements OnInit {
     else{
       const alert = await this.alertController.create({
         header: 'Atencion!',
-        message: 'Datos incorrectos, porfavor rellenar los campos!',
+        message: 'Datos incorrectos, intente de nuevo!',
         buttons: ['OK']
       });
       

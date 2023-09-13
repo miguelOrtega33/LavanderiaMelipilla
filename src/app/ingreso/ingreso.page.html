@@ -12,12 +12,12 @@
       <ion-list>
         <ion-list>
           <ion-item>
-            <ion-input labelPlacement="floating">
+            <ion-input [(ngModel)]="usuario" labelPlacement="floating">
               <div slot="label">Usuario<ion-text color="danger"></ion-text></div>
             </ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="password" labelPlacement="floating">
+            <ion-input [(ngModel)]="contrasena" type="password" labelPlacement="floating">
               <div  slot="label">Contraseña<ion-text color="danger"></ion-text></div>
             </ion-input>
           </ion-item>

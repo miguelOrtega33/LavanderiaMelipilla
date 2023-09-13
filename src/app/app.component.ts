@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { Share } from '@capacitor/share';
 
 @Component({
@@ -14,9 +14,13 @@ export class AppComponent {
     { title: 'Escanear QR', url: '/escanear', icon: 'qr-code' },
     { title: 'Horario', url: '/horario', icon: 'calendar-number' },
     { title: 'Asistencia', url: '/asistencia', icon: 'checkmark' },
-    { title: 'Reportar un problema', url: '/problema', icon: 'information' }
+    { title: 'Reportar un problema', url: '/problema', icon: 'information' },
+    
   ];
-  constructor(public router: Router, private menu: MenuController) {}
+
+ 
+
+  constructor(public router: Router, private menu: MenuController, private navCtrl: NavController) {}
 
   compartirApp(){
     Share.share({
@@ -26,4 +30,23 @@ export class AppComponent {
     });
   }
 
+  public alertButtons = [
+    {
+      text: 'Cancelar',
+      role: 'cancelar',
+    },
+    {
+      text: 'Confirmar',
+      role: 'confirmar',
+      handler: () => {
+        this.navCtrl.navigateForward('/ingreso');
+        this.menu.close();
+        this.menu.enable(false);
+      },
+    },
+  ];
+
+    ngOnInit() {
+      this.menu.enable(false);
+    }
 }

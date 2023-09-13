@@ -22,7 +22,6 @@ export class RecuperarCuentaPage implements OnInit {
       buttons: [{
         text: 'OK',
         handler: () => {
-          console.log("redirigido al login");
           this.navCtrl.navigateForward('/ingreso');
         }
       }]
