@@ -30,7 +30,7 @@ export class IngresoPage implements OnInit {
     if (localStorage.getItem('usuario') == "admin" && localStorage.getItem('contrasena') == "admin"){
         const loading = await this.loadingCtrl.create({
           message: 'Cargando...',
-          duration: 2000
+          duration: 1000
         });
         await loading.present();
          // Simula un retraso antes de redirigir
