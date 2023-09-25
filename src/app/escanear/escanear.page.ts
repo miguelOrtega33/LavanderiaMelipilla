@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 
 @Component({
   selector: 'app-escanear',
@@ -6,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./escanear.page.scss'],
 })
 export class EscanearPage implements OnInit {
+  imageSource: any;
 
   constructor() {}
-
-  ngOnInit() {
+  ngOnInit(){;
   }
+
+
+  takePicture = async () => {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Prompt
+    });
+
+    this.imageSource=image.dataUrl;
+  
+  };
+
 
 }
