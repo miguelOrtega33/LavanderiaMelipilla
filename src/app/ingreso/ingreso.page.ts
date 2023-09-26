@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, LoadingController} from '@ionic/angular';
-import { Router } from '@angular/router'; 
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ingreso',
@@ -8,45 +9,46 @@ import { Router } from '@angular/router';
   styleUrls: ['./ingreso.page.scss'],
 })
 export class IngresoPage implements OnInit {
-  usuario: string = '';
-  contrasena: string = '';
 
-  constructor(
-    private loadingCtrl: LoadingController,
-    private router: Router,
-    private alertController: AlertController
-    ) { }
+  formularioLogin: FormGroup;
 
-    ngOnInit() {
-    }
+  constructor(public fb: FormBuilder, private alertController: AlertController, private router: Router) {
+    this.formularioLogin = this.fb.group({
+      'nombre': new FormControl("", Validators.required),
+      'contrasena': new FormControl("", Validators.required)
+    })
+  }
 
-  async ingresar(){
-    
-    localStorage.setItem('usuario', this.usuario);
-    localStorage.setItem('contrasena', this.contrasena);
-    this.usuario = ''; // Limpiar el input después de guardar
-    this.contrasena = ''; // Limpiar el input después de guardar
+  ngOnInit() {
+  }
 
-    if (localStorage.getItem('usuario') == "admin" && localStorage.getItem('contrasena') == "admin"){
-        const loading = await this.loadingCtrl.create({
-          message: 'Cargando...',
-          duration: 1000
-        });
-        await loading.present();
-         // Simula un retraso antes de redirigir
-         setTimeout(() => {
-          loading.dismiss();
-          this.router.navigate(['/folder/:id']); // Reemplaza 'nueva-pagina' por el nombre de tu página
-        }, 2000); // Ajusta el tiempo de espera antes de la redirección
-    }
-    else{
+  async ingresar() {
+    var f = this.formularioLogin.value;
+
+    var nombreUsuario = localStorage.getItem('nombreUsuario');
+    var contrasenaUsuario = localStorage.getItem('contrasenaUsuario');
+
+    if (this.formularioLogin.invalid) {
       const alert = await this.alertController.create({
-        header: 'Atencion!',
-        message: 'Datos incorrectos, intente de nuevo!',
+        header: 'Mensaje',
+        message: 'Debes ingresar todos los datos',
         buttons: ['OK']
       });
-      
-    await alert.present();
+
+      await alert.present();
+      return;
+    } else if (nombreUsuario == f.nombre && contrasenaUsuario == f.contrasena) {
+      localStorage.setItem('autenticado','true');
+      this.router.navigate(["/folder/:id"]);      
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Mensaje',
+        message: 'Datos incorrectos',
+        buttons: ['OK']
+      });
+
+      await alert.present();
+      return;
     }
   }
 }

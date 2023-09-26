@@ -38,7 +38,11 @@ const routes: Routes = [
   {
     path: 'inicio-aplicacion',
     loadChildren: () => import('./inicio-aplicacion/inicio-aplicacion.module').then( m => m.InicioAplicacionPageModule)
+  },  {
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   }
+
 ];
 
 @NgModule({

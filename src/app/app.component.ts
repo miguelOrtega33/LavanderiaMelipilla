@@ -30,23 +30,14 @@ export class AppComponent {
     });
   }
 
-  public alertButtons = [
-    {
-      text: 'Cancelar',
-      role: 'cancelar',
-    },
-    {
-      text: 'Confirmar',
-      role: 'confirmar',
-      handler: () => {
-        this.navCtrl.navigateForward('/ingreso');
-        this.menu.close();
-        this.menu.enable(false);
-      },
-    },
-  ];
 
     ngOnInit() {
       this.menu.enable(false);
+    }
+
+    cerrarSesion(){
+      localStorage.removeItem('autenticado');
+      this.router.navigate(["/ingreso"]);
+      this.menu.close();
     }
 }
