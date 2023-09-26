@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-ingreso',
@@ -12,7 +12,7 @@ export class IngresoPage implements OnInit {
 
   formularioLogin: FormGroup;
 
-  constructor(public fb: FormBuilder, private alertController: AlertController, private router: Router) {
+  constructor(public fb: FormBuilder, private alertController: AlertController, private router: Router, private loadingCtrl: LoadingController, private navCtrl: NavController) {
     this.formularioLogin = this.fb.group({
       'nombre': new FormControl("", Validators.required),
       'contrasena': new FormControl("", Validators.required)
@@ -38,8 +38,16 @@ export class IngresoPage implements OnInit {
       await alert.present();
       return;
     } else if (nombreUsuario == f.nombre && contrasenaUsuario == f.contrasena) {
+      const loading = await this.loadingCtrl.create({
+        message: 'Cargando...',
+        duration: 1000,
+      });
       localStorage.setItem('autenticado','true');
-      this.router.navigate(["/folder/:id"]);      
+      loading.present();
+      loading.onDidDismiss().then(() => {
+        // Redirigir a otra página aquí
+        this.router.navigate(['/folder/:id']);
+      });
     } else {
       const alert = await this.alertController.create({
         header: 'Mensaje',

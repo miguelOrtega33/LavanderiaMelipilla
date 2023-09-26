@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -12,7 +12,7 @@ export class RegistroPage implements OnInit {
 
   formularioLogin: FormGroup;
 
-  constructor(private router: Router, public fb: FormBuilder, private alertController: AlertController) {
+  constructor(private router: Router, public fb: FormBuilder, private alertController: AlertController,  private navCtrl: NavController) {
     this.formularioLogin = this.fb.group({
       'nombre': new FormControl("", Validators.required),
       'contrasena': new FormControl("", Validators.required),
@@ -54,11 +54,15 @@ export class RegistroPage implements OnInit {
       const alert = await this.alertController.create({
         header: 'Mensaje',
         message: 'Registrado correctamente',
-        buttons: ['OK']
+        buttons: [{
+          text: 'OK',
+          handler: () => {
+            this.navCtrl.navigateForward('/ingreso');
+          }
+        }]
       });
 
       await alert.present();      
-      this.router.navigate(["/ingreso"]);
     }
   }
 }

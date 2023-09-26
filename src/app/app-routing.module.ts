@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AutenticadoGuard } from './guard/autenticado.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule),
+    canActivate: [AutenticadoGuard]
   },
   {
     path: 'ingreso',
@@ -21,24 +23,25 @@ const routes: Routes = [
   },
   {
     path: 'escanear',
-    loadChildren: () => import('./escanear/escanear.module').then( m => m.EscanearPageModule)
+    loadChildren: () => import('./escanear/escanear.module').then( m => m.EscanearPageModule),
+    canActivate: [AutenticadoGuard]
   },
   {
     path: 'horario',
-    loadChildren: () => import('./horario/horario.module').then( m => m.HorarioPageModule)
+    loadChildren: () => import('./horario/horario.module').then( m => m.HorarioPageModule),
+    canActivate: [AutenticadoGuard]
   },
   {
     path: 'asistencia',
-    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
+    canActivate: [AutenticadoGuard]
   },
   {
     path: 'problema',
-    loadChildren: () => import('./problema/problema.module').then( m => m.ProblemaPageModule)
+    loadChildren: () => import('./problema/problema.module').then( m => m.ProblemaPageModule),
+    canActivate: [AutenticadoGuard]
   },
   {
-    path: 'inicio-aplicacion',
-    loadChildren: () => import('./inicio-aplicacion/inicio-aplicacion.module').then( m => m.InicioAplicacionPageModule)
-  },  {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   }
