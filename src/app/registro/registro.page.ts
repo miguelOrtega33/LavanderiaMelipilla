@@ -28,7 +28,7 @@ export class RegistroPage implements OnInit {
 
     if (this.formularioLogin.invalid) {
       const alert = await this.alertController.create({
-        header: 'Mensaje',
+        header: 'Atencion!.',
         message: 'Debes ingresar todos los datos',
         buttons: ['OK']
       });
@@ -37,7 +37,7 @@ export class RegistroPage implements OnInit {
       return;
     } else if (f.contrasena != f.confirmar_contrasena) {
       const alert = await this.alertController.create({
-        header: 'Mensaje',
+        header: 'Atencion!.',
         message: 'Las contraseñas no coinciden',
         buttons: ['OK']
       });
@@ -52,7 +52,7 @@ export class RegistroPage implements OnInit {
       localStorage.setItem('contrasenaUsuario', contrasenaUsuario);
 
       const alert = await this.alertController.create({
-        header: 'Mensaje',
+        header: 'Felicidades!.',
         message: 'Registrado correctamente',
         buttons: [{
           text: 'OK',

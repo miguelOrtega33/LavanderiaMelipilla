@@ -35,9 +35,20 @@ export class AppComponent {
       this.menu.enable(false);
     }
 
-    cerrarSesion(){
-      localStorage.removeItem('autenticado');
-      this.router.navigate(["/ingreso"]);
-      this.menu.close();
-    }
+    public alertButtons = [
+      {
+        text: 'Cancelar',
+        role: 'cancelar',
+      },
+      {
+        text: 'Confirmar',
+        role: 'confirmar',
+        handler: () => {
+          this.navCtrl.navigateForward('/ingreso');
+          this.menu.close();
+          this.menu.enable(false);
+          localStorage.removeItem('autenticado');
+        },
+      },
+    ];
 }

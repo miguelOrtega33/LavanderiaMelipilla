@@ -30,7 +30,7 @@ export class IngresoPage implements OnInit {
 
     if (this.formularioLogin.invalid) {
       const alert = await this.alertController.create({
-        header: 'Mensaje',
+        header: 'Atencion!.',
         message: 'Debes ingresar todos los datos',
         buttons: ['OK']
       });
@@ -42,6 +42,7 @@ export class IngresoPage implements OnInit {
         message: 'Cargando...',
         duration: 1000,
       });
+      this.formularioLogin.reset(); 
       localStorage.setItem('autenticado','true');
       loading.present();
       loading.onDidDismiss().then(() => {
@@ -50,7 +51,7 @@ export class IngresoPage implements OnInit {
       });
     } else {
       const alert = await this.alertController.create({
-        header: 'Mensaje',
+        header: 'Atencion!.',
         message: 'Datos incorrectos',
         buttons: ['OK']
       });
