@@ -22,6 +22,11 @@ export class AppComponent {
 
   constructor(public router: Router, private menu: MenuController, private navCtrl: NavController) {}
 
+  abrirMapa() {
+    this.router.navigate(["/mapa"]);
+    this.menu.close();
+  }
+  
   compartirApp(){
     Share.share({
       title: 'Compartir myApp',

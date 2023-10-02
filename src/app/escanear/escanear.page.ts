@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-escanear',
@@ -9,7 +10,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 export class EscanearPage implements OnInit {
   imageSource: any;
 
-  constructor() {}
+  constructor(private menu: MenuController) {}
   ngOnInit(){;
   }
 
@@ -21,10 +22,7 @@ export class EscanearPage implements OnInit {
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Prompt
     });
-
     this.imageSource=image.dataUrl;
-  
+    this.menu.enable(true);
   };
-
-
 }
