@@ -13,10 +13,10 @@ export class IngresoPage implements OnInit {
   formularioLogin: FormGroup;
 
   constructor(public fb: FormBuilder, private alertController: AlertController, 
-    private router: Router, private loadingCtrl: LoadingController, private navCtrl: NavController,
+    private router: Router, private loadingCtrl: LoadingController, 
     private menu: MenuController,) {
     this.formularioLogin = this.fb.group({
-      'nombre': new FormControl("", Validators.required),
+      'email': new FormControl("", Validators.required),
       'contrasena': new FormControl("", Validators.required)
     })
   }
@@ -27,7 +27,7 @@ export class IngresoPage implements OnInit {
   async ingresar() {
     var f = this.formularioLogin.value;
 
-    var nombreUsuario = localStorage.getItem('nombreUsuario');
+    var emailUsuario = localStorage.getItem('emailUsuario');
     var contrasenaUsuario = localStorage.getItem('contrasenaUsuario');
 
     if (this.formularioLogin.invalid) {
@@ -39,7 +39,7 @@ export class IngresoPage implements OnInit {
 
       await alert.present();
       return;
-    } else if (nombreUsuario == f.nombre && contrasenaUsuario == f.contrasena) {
+    } else if (emailUsuario == f.email && contrasenaUsuario == f.contrasena) {
       const loading = await this.loadingCtrl.create({
         message: 'Cargando...',
         duration: 1000,

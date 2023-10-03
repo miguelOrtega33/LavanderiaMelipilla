@@ -16,7 +16,8 @@ export class RegistroPage implements OnInit {
     this.formularioLogin = this.fb.group({
       'nombre': new FormControl("", Validators.required),
       'contrasena': new FormControl("", Validators.required),
-      'confirmar_contrasena': new FormControl("", Validators.required)
+      'confirmar_contrasena': new FormControl("", Validators.required),
+      'email': new FormControl("", Validators.required)
     })
   }
 
@@ -45,11 +46,14 @@ export class RegistroPage implements OnInit {
       await alert.present();
       return;
     } else {
+      
       var nombreUsuario = f.nombre;
       var contrasenaUsuario = f.contrasena;
+      var emailUsuario = f.email;
 
       localStorage.setItem('nombreUsuario', nombreUsuario);
       localStorage.setItem('contrasenaUsuario', contrasenaUsuario);
+      localStorage.setItem('emailUsuario', emailUsuario);
 
       const alert = await this.alertController.create({
         header: 'Felicidades!.',

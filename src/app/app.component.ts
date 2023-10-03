@@ -22,6 +22,8 @@ export class AppComponent {
 
   constructor(public router: Router, private menu: MenuController, private navCtrl: NavController) {}
 
+  emailUsuario = localStorage.getItem('emailUsuario');
+  
   abrirMapa() {
     this.router.navigate(["/mapa"]);
     this.menu.close();
