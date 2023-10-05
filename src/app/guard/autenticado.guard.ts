@@ -15,7 +15,7 @@ export class AutenticadoGuard implements CanActivate {
     if (localStorage.getItem('autenticado')) {
       return true;
     } else {
-      this.router.navigate(["/registro"]);
+      this.router.navigate(["/ingreso"]);
       return false;
     }
   }
