@@ -1,13 +1,18 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
 import { MenuController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
-interface Character {
-  name: string;
-  image: string;
-  id: string;
+interface WeatherResponse {
+  main: {
+    temp: number;
+    // Otras propiedades si las hay
+  };
+  // Otras propiedades si las hay
 }
+
+const API_URL = environment.API_URL;
+const API_KEY = environment.API_KEY;
 
 @Component({
   selector: 'app-folder',
@@ -16,27 +21,29 @@ interface Character {
 })
 
 export class FolderPage implements OnInit {
-  @ViewChild("titulo", { read: ElementRef, static: true }) titulo!: ElementRef;
-  personajes: Character[] = [];
+
+
   public folder!: string;
-  private activatedRoute = inject(ActivatedRoute);
-  constructor(private menu: MenuController, private httpClient: HttpClient) {
+  constructor(private menu: MenuController,
+     public httpClient: HttpClient,) {
   }
 
+  weatherTemp: any = {}
   fecha: Date = new Date();
   dia: number = this.fecha.getDate();
   mes: number = this.fecha.getMonth() + 1;
   annio: number = this.fecha.getFullYear();
   usuario = localStorage.getItem('nombreUsuario');
 
-  ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    this.menu.enable(true);
-    this.httpClient.get<any>('https://rickandmortyapi.com/api/character')
-    .subscribe((res: any) => {
-      console.log(res);
-      this.personajes = res.results as Character[]; // Usar la interfaz Character
-    });
+  loadData(){
+    this.httpClient.get<WeatherResponse >(`${API_URL}/weather?lat=${-33.68909}&lon=${-71.21528}&appid=${API_KEY}`).subscribe(results =>{
+      console.log(results);
+      this.weatherTemp = results['main']
+    })
   }
 
+  ngOnInit() {
+    this.menu.enable(true);
+    this.loadData();
+  }
 }

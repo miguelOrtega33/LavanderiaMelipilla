@@ -6,16 +6,13 @@
     <ion-title>Inicio</ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
-
-
   <div id="container">
     <div id="logo">
       <img width="350px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/1200px-Logo_DuocUC.svg.png" alt="">
     </div>
     <strong class="capitalize">Bienvenido {{ usuario }}</strong>
-    <p>{{ dia }} / {{ mes }} / {{ annio }}</p>
+    <p>{{ dia }} / {{ mes }} / {{ annio }} / Temperatura: {{ weatherTemp.temp - 273.15 }}°C</p>
     <ion-item id="cartas">
       <ion-card>
         <img alt="Silhouette of mountains" src="https://i.ytimg.com/vi/4pR9Rh5W9ZM/maxresdefault.jpg" />
@@ -25,5 +22,4 @@
       </ion-card>
     </ion-item>
   </div>
-
 </ion-content>

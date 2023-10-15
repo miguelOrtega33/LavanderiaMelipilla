@@ -45,8 +45,40 @@ export class RegistroPage implements OnInit {
 
       await alert.present();
       return;
+    } else if (f.nombre.length < 5) {
+      const alert = await this.alertController.create({
+        header: 'Atencion!.',
+        message: 'Nombre demasiado corto, minimo 5 caracteres!.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    } else if (f.email.length < 7) {
+      const alert = await this.alertController.create({
+        header: '¡Atención!',
+        message: 'El correo debe tener al menos 7 caracteres',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    } else if (!/^[^\s@]+@duocuc\.cl$/.test(f.email)) {
+      const alert = await this.alertController.create({
+        header: '¡Atención!',
+        message: 'Dominio incorrecto, porfavor asegurate de que sea de la institucion DuocUc.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    } else if (f.contrasena.length < 6) {
+      const alert = await this.alertController.create({
+        header: '¡Atención!',
+        message: 'Contrasena demasiado corta!.',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
     } else {
-      
+
       var nombreUsuario = f.nombre;
       var contrasenaUsuario = f.contrasena;
       var emailUsuario = f.email;
@@ -66,7 +98,7 @@ export class RegistroPage implements OnInit {
         }]
       });
 
-      await alert.present();      
+      await alert.present();
     }
   }
 }
