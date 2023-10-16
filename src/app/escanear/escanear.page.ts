@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { MenuController } from '@ionic/angular';
 
 @Component({
@@ -8,21 +8,24 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./escanear.page.scss'],
 })
 export class EscanearPage implements OnInit {
+  
   imageSource: any;
+  lectura: string | ""="" ;
 
   constructor(private menu: MenuController) {}
   ngOnInit(){;
   }
 
 
-  takePicture = async () => {
-    const image = await Camera.getPhoto({
-      quality: 90,
-      allowEditing: true,
-      resultType: CameraResultType.DataUrl,
-      source: CameraSource.Prompt
-    });
-    this.imageSource=image.dataUrl;
-    this.menu.enable(true);
-  };
+  async startScan() {
+    await BarcodeScanner.checkPermission({ force: true });
+    BarcodeScanner.hideBackground();
+    const result = await BarcodeScanner.startScan();
+
+    if (result.hasContent) {
+      this.lectura = result.content;
+      console.log(this.lectura);
+    }
+  } 
+  
 }
