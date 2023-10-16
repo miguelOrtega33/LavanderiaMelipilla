@@ -10,6 +10,11 @@
 <ion-content [fullscreen]="true">
   <div id="qr">
     <ion-button (click)="startScan()">Registrar Asistencia</ion-button>
+    
+  <div *ngIf="lectura && lectura!= '' ">
+    <h4>{{lectura}}</h4>
+    <ion-button [href]=lectura >Ir al link</ion-button>
+</div>
   </div>
 </ion-content>
 
