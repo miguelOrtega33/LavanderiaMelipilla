@@ -30,7 +30,7 @@ export class FolderPage implements OnInit {
 
   public folder!: string;
   constructor(private menu: MenuController,
-     public httpClient: HttpClient,) {
+     public httpClient: HttpClient) {
   }
 
   weatherIcon: any
