@@ -49,6 +49,8 @@ export class FolderPage implements OnInit {
       this.weatherDetails = results['weather'][0]
       this.weatherIcon = `https://openweathermap.org/img/wn/${this.weatherDetails.icon}@2x.png`
       this.weatherTemp.temp = (this.weatherTemp.temp  - 273.15).toFixed(0)
+      this.weatherTemp.temp_min = (this.weatherTemp.temp_min  - 273.15).toFixed(0)
+      this.weatherTemp.temp_max = (this.weatherTemp.temp_max  - 273.15).toFixed(0)
     })
   }
 

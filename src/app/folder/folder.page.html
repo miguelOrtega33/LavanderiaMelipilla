@@ -26,12 +26,16 @@
         <ion-card-title>Temperatura Melipilla</ion-card-title>
       </ion-card-header>
       <ion-card-content>
+        <div id="minymax">
+          Minina: {{ weatherTemp.temp_min }}°C
+          // Maxima: {{ weatherTemp.temp_max }}°C
+        </div>
         <div id="clima">
-          {{ weatherTemp.temp }}°C
           <img [src]=weatherIcon>
+          Actual: {{ weatherTemp.temp }}°C
         </div>
       </ion-card-content>
     </ion-card>
   </div>
-  
+
 </ion-content>
