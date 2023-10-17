@@ -12,8 +12,8 @@ export class IngresoPage implements OnInit {
 
   formularioLogin: FormGroup;
 
-  constructor(public fb: FormBuilder, private alertController: AlertController, 
-    private router: Router, private loadingCtrl: LoadingController, 
+  constructor(public fb: FormBuilder, private alertController: AlertController,
+    private router: Router, private loadingCtrl: LoadingController,
     private menu: MenuController,) {
     this.formularioLogin = this.fb.group({
       'email': new FormControl("", Validators.required),
@@ -44,7 +44,7 @@ export class IngresoPage implements OnInit {
         message: 'Cargando...',
         duration: 1000,
       });
-      this.formularioLogin.reset(); 
+        this.formularioLogin.reset();
       localStorage.setItem('autenticado','true');
       loading.present();
       loading.onDidDismiss().then(() => {
