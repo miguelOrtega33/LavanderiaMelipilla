@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController, NavController } from '@ionic/angular';
-import { Share } from '@capacitor/share';
 
 @Component({
   selector: 'app-root',
@@ -11,31 +10,16 @@ import { Share } from '@capacitor/share';
 export class AppComponent {
   public appPages = [
     { title: 'Inicio', url: '/folder/:id', icon: 'home' },
-    { title: 'Escanear QR', url: '/escanear', icon: 'qr-code' },
-    { title: 'Horario', url: '/horario', icon: 'calendar-number' },
-    { title: 'Asistencia', url: '/asistencia', icon: 'checkmark' },
-    { title: 'Reportar un problema', url: '/problema', icon: 'information' },
-    
+    { title: 'Escanear QR', url: '/escanear', icon: '' },
+    { title: 'Registrar', url: '/registrar', icon: 'qr-code' },
+    { title: 'informes', url: '/informes', icon: 'qr-code' },
   ];
 
- 
+
 
   constructor(public router: Router, private menu: MenuController, private navCtrl: NavController) {}
 
   emailUsuario = localStorage.getItem('emailUsuario');
-  
-  abrirMapa() {
-    this.router.navigate(["/mapa"]);
-    this.menu.close();
-  }
-  
-  compartirApp(){
-    Share.share({
-      title: 'Compartir myApp',
-      url: 'https://bilbaolabs.cl/',
-      dialogTitle: 'Es perfecta !',
-    });
-  }
 
 
     ngOnInit() {

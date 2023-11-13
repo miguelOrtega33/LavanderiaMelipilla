@@ -27,31 +27,22 @@ const routes: Routes = [
     canActivate: [AutenticadoGuard]
   },
   {
-    path: 'horario',
-    loadChildren: () => import('./horario/horario.module').then( m => m.HorarioPageModule),
-    canActivate: [AutenticadoGuard]
-  },
-  {
-    path: 'asistencia',
-    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
-    canActivate: [AutenticadoGuard]
-  },
-  {
-    path: 'problema',
-    loadChildren: () => import('./problema/problema.module').then( m => m.ProblemaPageModule),
-    canActivate: [AutenticadoGuard]
-  },
-  {
     path: 'registro',
     loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  },  {
-    path: 'mapa',
-    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
   },
   {
     path: 'clima',
     loadChildren: () => import('./clima/clima.module').then( m => m.ClimaPageModule)
+  },
+  {
+    path: 'informes',
+    loadChildren: () => import('./informes/informes.module').then( m => m.InformesPageModule)
+  },  {
+    path: 'registrar',
+    loadChildren: () => import('./registrar/registrar.module').then( m => m.RegistrarPageModule)
   }
+
+
 
 
 ];

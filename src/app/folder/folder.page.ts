@@ -36,10 +36,6 @@ export class FolderPage implements OnInit {
   weatherIcon: any
   weatherDetails: any
   weatherTemp: any = {}
-  fecha: Date = new Date();
-  dia: number = this.fecha.getDate();
-  mes: number = this.fecha.getMonth() + 1;
-  annio: number = this.fecha.getFullYear();
   usuario = localStorage.getItem('nombreUsuario');
 
   loadData(){
