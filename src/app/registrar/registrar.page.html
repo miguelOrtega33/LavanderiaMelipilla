@@ -8,36 +8,41 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <form [formGroup]="formularioRopa">
   <ion-list>
     <ion-list>
       <ion-item>
-        <ion-input label="Cantidad ropa" placeholder="cantidad"></ion-input>
+        <ion-input formControlName="cantidad" label="Cantidad ropa" placeholder="cantidad"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-select label="Tipo ropa" placeholder="tipo ropa">
+        <ion-select formControlName="tipo" label="Tipo ropa" placeholder="tipo ropa">
           <ion-select-option value="sucia">Sucia</ion-select-option>
           <ion-select-option value="limpia">Limpia</ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
-        <ion-select label="Servicio clinico" placeholder="servicilio clinico">
+        <ion-select formControlName="servicio" label="Servicio clinico" placeholder="servicilio clinico">
           <ion-select-option value="cirugia">cirugia</ion-select-option>
           <ion-select-option value="neurologia">neurologia</ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
-        <ion-select label="Tipo de registro" placeholder="tipo de registro">
+        <ion-select formControlName="registro" label="Tipo de registro" placeholder="tipo de registro">
           <ion-select-option value="egreso">egreso</ion-select-option>
           <ion-select-option value="ingreso">ingreso</ion-select-option>
         </ion-select>
       </ion-item>
 
       <ion-item>
-        <ion-input label="codigo" placeholder="Codigo"></ion-input>
+        <ion-input formControlName="codigo" label="codigo" placeholder="Codigo"></ion-input>
       </ion-item>
     </ion-list>
   </ion-list>
+  <ion-col>
+    <ion-button type="submit" color="success" expand="block" (click)="registrar()">REGISTRAR</ion-button>
+  </ion-col>
+</form>
 </ion-content>
